@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import max.ohm.privatechat.presentation.splashscreen.SplashScreen
 import max.ohm.privatechat.ui.theme.PrivateChatTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PrivateChatTheme {
-
+                SplashScreen()
             }
         }
     }
