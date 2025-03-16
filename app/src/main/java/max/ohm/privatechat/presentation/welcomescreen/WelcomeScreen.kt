@@ -57,7 +57,7 @@ fun WelcomeScreen() {
         }
 
         Row {
-            Text(text = "Term of Service", color = Color.Gray)
+            Text(text = "accept the", color = Color.Gray)
             Spacer(modifier = Modifier.width(8.dp))
             Text(text = "Term of Service", color = colorResource(id = R.color.light_green))
         }
