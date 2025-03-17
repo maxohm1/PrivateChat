@@ -111,7 +111,7 @@ fun UpdateScreen() {
 
             sampleChannel.forEach{
 
-                ChannelItemDesign(channels = it)
+                ChannelItemDesign(channels =it )
             }
 
         }
