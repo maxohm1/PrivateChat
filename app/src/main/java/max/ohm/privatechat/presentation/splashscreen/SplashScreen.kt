@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -21,10 +22,35 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import kotlinx.coroutines.delay
 import max.ohm.privatechat.R  // should be manually import
+import max.ohm.privatechat.presentation.navigation.Routes
+
 @Composable
-@Preview(showSystemUi = true)
-fun SplashScreen() {
+
+
+fun SplashScreen(navHostController: NavHostController) {
+
+
+    // one time run (composable- run so many times)
+
+    LaunchedEffect(Unit) {
+        delay(1000)
+        navHostController.navigate(Routes.WelcomeScreen){
+
+            // clear navback stack (if back to previous screen)
+
+            popUpTo<Routes.SplashScreen>{ inclusive=true }
+
+
+
+        }
+
+
+    }
+
+
 
     Box (modifier= Modifier.fillMaxSize()){
         Image(painter= painterResource(id = R.drawable.whatsapp_icon),

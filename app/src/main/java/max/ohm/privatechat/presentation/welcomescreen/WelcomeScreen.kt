@@ -25,13 +25,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import max.ohm.privatechat.R
+import max.ohm.privatechat.presentation.navigation.Routes
 
 @Composable
-@Preview(showSystemUi = true)
 
 
-fun WelcomeScreen() {
+
+fun WelcomeScreen(navHostController: NavHostController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -65,7 +67,7 @@ fun WelcomeScreen() {
         Spacer(modifier= Modifier.height(24.dp))
 
         Button(
-            onClick = {},
+            onClick = { navHostController.navigate(Routes.UserRegistrationScreen)},
             modifier = Modifier.size(280.dp, 43.dp),
             shape = RoundedCornerShape(8.dp),
             colors = ButtonDefaults.buttonColors(
