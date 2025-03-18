@@ -42,7 +42,7 @@ fun UpdateScreen() {
 
     )
 
- val sampleChannel= listOf(
+ var sampleChannel= listOf(
      Channels(R.drawable.img, "Bitmap", "Creates your unique ideas"),
      Channels(R.drawable.girl, "Meta", "Live in Virtual Reality"),
      Channels(R.drawable.girl2, "Prachi", "Shooting Movie"),
