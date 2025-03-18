@@ -29,7 +29,7 @@ import max.ohm.privatechat.R
 
 @Composable
 
-@Preview(showSystemUi = true)
+
 
 fun ChannelItemDesign(channels: Channels) {
 
