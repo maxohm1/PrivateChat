@@ -11,7 +11,7 @@ import max.ohm.privatechat.presentation.communitiesscreen.CommunitiesScreen
 import max.ohm.privatechat.presentation.homescreen.HomeScreen
 import max.ohm.privatechat.presentation.splashscreen.SplashScreen
 import max.ohm.privatechat.presentation.updatescreen.UpdateScreen
-import max.ohm.privatechat.presentation.userregistrationscreen.UserRegistrationScren
+import max.ohm.privatechat.presentation.userregistrationscreen.AuthScreen
 import max.ohm.privatechat.presentation.welcomescreen.WelcomeScreen
 
 
@@ -35,7 +35,7 @@ fun WhatsAppNavigationSystem() {
         }
 
         composable<Routes.UserRegistrationScreen>{
-            UserRegistrationScren()
+            AuthScreen(navController)
         }
         composable<Routes.HomeScreen>{
             HomeScreen()
