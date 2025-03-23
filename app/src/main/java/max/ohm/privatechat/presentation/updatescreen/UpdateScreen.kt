@@ -23,14 +23,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import kotlinx.coroutines.channels.Channel
 import max.ohm.privatechat.R
 import max.ohm.privatechat.presentation.bottomnavigation.BottomNavigation
+import max.ohm.privatechat.presentation.navigation.Routes
 
 @Composable
-@Preview(showSystemUi = true)
 
-fun UpdateScreen() {
+
+fun UpdateScreen(navHostController: NavHostController) {
 
     val scrollState = rememberScrollState()
     val sampleStatus = listOf(
@@ -61,7 +63,16 @@ fun UpdateScreen() {
             }
         },
         bottomBar = {
-            BottomNavigation()
+            BottomNavigation(navHostController, selectedItem = 0, onClick = {index ->
+                when(index){
+
+                    0 -> {navHostController.navigate(Routes.HomeScreen)}
+                    1 -> {navHostController.navigate(Routes.UpdateScreen)}
+                    2 -> {navHostController.navigate(Routes.CommunitiesScreen)}
+                    3 -> {navHostController.navigate(Routes.CallScreen)}
+                }
+
+            })
         },
         topBar = {
             TopBar()

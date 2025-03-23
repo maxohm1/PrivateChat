@@ -36,13 +36,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import max.ohm.privatechat.R
 import max.ohm.privatechat.presentation.bottomnavigation.BottomNavigation
+import max.ohm.privatechat.presentation.navigation.Routes
 
 @Composable
-@Preview(showSystemUi = true)
 
-fun CallScreen() {
+
+fun CallScreen(navHostController: NavHostController) {
 
     val sampleCall = listOf(
         Call(R.drawable.bhuvan_bam, "Bhuvam Bam", "Yesterday, 2:46 PM", true),
@@ -146,7 +148,16 @@ fun CallScreen() {
                 }
             }
         }, bottomBar = {
-            BottomNavigation()
+            BottomNavigation(navHostController, selectedItem = 0, onClick = {index ->
+                when(index){
+
+                    0 -> {navHostController.navigate(Routes.HomeScreen)}
+                    1 -> {navHostController.navigate(Routes.UpdateScreen)}
+                    2 -> {navHostController.navigate(Routes.CommunitiesScreen)}
+                    3 -> {navHostController.navigate(Routes.CallScreen)}
+                }
+
+            })
         },
           floatingActionButton = {
               FloatingActionButton(

@@ -2,6 +2,7 @@ package max.ohm.privatechat.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -13,6 +14,7 @@ import max.ohm.privatechat.presentation.profile.UserProfileSetScreen
 import max.ohm.privatechat.presentation.splashscreen.SplashScreen
 import max.ohm.privatechat.presentation.updatescreen.UpdateScreen
 import max.ohm.privatechat.presentation.userregistrationscreen.AuthScreen
+import max.ohm.privatechat.presentation.viewmodel.BaseViewModel
 import max.ohm.privatechat.presentation.welcomescreen.WelcomeScreen
 
 
@@ -40,16 +42,17 @@ fun WhatsAppNavigationSystem() {
             AuthScreen(navController)
         }
         composable<Routes.HomeScreen>{
-            HomeScreen()
+            val baseViewModel: BaseViewModel = hiltViewModel()
+            HomeScreen(navController, baseViewModel)
         }
         composable<Routes.UpdateScreen>{
-            UpdateScreen()
+            UpdateScreen(navController)
         }
         composable<Routes.CommunitiesScreen>{
-            CommunitiesScreen()
+            CommunitiesScreen(navController)
         }
         composable<Routes.CallScreen>{
-            CallScreen()
+            CallScreen(navController)
         }
 
         composable<Routes.UserProfileSetScreen>{
